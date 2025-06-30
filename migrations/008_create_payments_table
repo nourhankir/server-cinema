@@ -1,0 +1,24 @@
+<?php
+require '../connection/connection.php';
+
+$sql = <<<SQL
+CREATE TABLE IF NOT EXISTS payments (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  booking_id INT UNSIGNED NOT NULL,
+  amount DECIMAL(6,2) NOT NULL,
+  payment_method VARCHAR(50),
+  paid_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (booking_id) REFERENCES bookings(id) ON DELETE CASCADE
+);
+
+
+
+ ENGINE=InnoDB; DEFAULT CHARSET=utf8mb4;
+SQL;
+
+try {
+  $conn->exec($sql);
+  echo "✅ showtimes table created successfully.";
+} catch (PDOException $e) {
+  echo "❌ Error creating showtimes table: " . $e->getMessage();
+}
