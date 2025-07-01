@@ -1,0 +1,44 @@
+I am sorry for the confusion with my Git repository. 
+I assure you that I do know how to work with Git and manage repositories.
+I was using one repo initially but I ran into a merge conflict. 
+I tried to resolve it with some help but unfortunately things got more complicated 
+I decided to create a new repository to get back on track
+It was a tough experience but I’ve learned a lot from it  definitely the hard way 
+and I now feel much more confident handling Git especially with merges and branching
+
+
+
+This is the flow of git 
+
+
+Creating the  main branch
+git checkout -b main
+
+then stage branch from main
+git checkout -b stage
+
+then dev branch from stage
+git checkout -b dev
+
+then login feature branch from dev
+git checkout -b login
+
+after finishing login feature
+git add .
+git commit -m "Add login feature"
+
+git push origin login
+
+git checkout dev
+git merge login
+git push origin dev
+
+ ai feature branch from dev
+git checkout -b ai
+
+git add .
+git commit -m "Add AI feature"
+git push origin ai
+git checkout dev
+git merge ai
+git push origin dev
