@@ -1,5 +1,5 @@
 <?php
-// cinema-server/migrations/002create_movies_table.php
+
 require '../connection/connection.php';
 
 $sql = <<<SQL

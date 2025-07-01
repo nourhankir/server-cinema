@@ -1,13 +1,10 @@
 <?php
-/**
- * Migration: Create users table with full_name, dob, favorite_genre, is_admin
- * Usage: php create_users_table.php
- */
 
-// Include your PDO connection (defines $conn)
+
+
 require __DIR__ . '/../connection/connection.php';
 
-// SQL to create the users table
+
 $sql = <<<SQL
 CREATE TABLE IF NOT EXISTS `users` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -24,7 +21,7 @@ SQL;
 
 try {
     $conn->exec($sql);
-    echo "✅ users table created successfully.\n";
+    echo " users table created successfully.\n";
 } catch (PDOException $e) {
-    die("❌ Migration failed: " . $e->getMessage() . "\n");
+    die(" Migration failed: " . $e->getMessage() . "\n");
 }

@@ -12,7 +12,7 @@ SQL;
 
 try {
   $conn->exec($sql);
-  echo "✅ showtimes table created successfully.";
+  echo " showtimes table created successfully.";
 } catch (PDOException $e) {
-  echo "❌ Error creating showtimes table: " . $e->getMessage();
+  echo " Error creating showtimes table: " . $e->getMessage();
 }

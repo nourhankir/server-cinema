@@ -1,5 +1,5 @@
 <?php
-// models/User.php
+
 require_once 'Model.php';
 
 class Showtime extends Model {

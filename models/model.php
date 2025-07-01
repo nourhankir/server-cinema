@@ -1,20 +1,14 @@
 <?php
 
-// Include the global PDO connection
+
 require '../connection/connection.php';
 
 abstract class Model
 {
-    /**
-     * Table name to be defined in child classes
-     * @var string
-     */
+    
     protected static $table;
 
-    /**
-     * Get the shared PDO connection
-     * @return PDO
-     */
+    
     protected static function db(): PDO
 {
     global $conn;
@@ -22,10 +16,7 @@ abstract class Model
 }
 
 
-    /**
-     * Fetch all records from the table
-     * @return array
-     */
+    
     public static function all(): array
     {
         $stmt = static::db()->query("SELECT * FROM " . static::$table);
@@ -41,11 +32,7 @@ abstract class Model
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * Find a single record by primary key
-     * @param  mixed $id
-     * @return array|false
-     */
+  
     public static function find($id)
     {
         $stmt = static::db()->prepare("SELECT * FROM " . static::$table . " WHERE id = :id LIMIT 1");
@@ -53,11 +40,7 @@ abstract class Model
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * Insert a new record and return its ID
-     * @param  array $data
-     * @return string
-     */
+    
     public static function create(array $data): string
     {
         $columns = array_keys($data);
@@ -73,12 +56,7 @@ abstract class Model
         return static::db()->lastInsertId();
     }
 
-    /**
-     * Update an existing record by ID
-     * @param  mixed $id
-     * @param  array $data
-     * @return bool
-     */
+    
     public static function update($id, array $data): bool
     {
         $columns = array_keys($data);
@@ -93,11 +71,7 @@ abstract class Model
         return $stmt->execute($data);
     }
 
-    /**
-     * Delete a record by ID
-     * @param  mixed $id
-     * @return bool
-     */
+    
     public static function delete($id): bool
     {
         $stmt = static::db()->prepare("DELETE FROM " . static::$table . " WHERE id = :id");

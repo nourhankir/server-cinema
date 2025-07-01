@@ -1,5 +1,5 @@
 <?php
-// cinema-server/controllers/showtimes_by_movie.php
+
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
